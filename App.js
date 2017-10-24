@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList} from 'react-native';
+import { StyleSheet, Text, View, FlatList, TextInput} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import ViewA from './Components/ViewA';
 import ViewB from './Components/ViewB';
@@ -15,19 +15,19 @@ export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state={
+      text: 'placeholder',
       dataSource: [{key: 'Devin'},
-      {key: 'Jackson'},
-      {key: 'James'},
-      {key: 'Joel'},
-      {key: 'John'},
-      {key: 'Jillian'},
-      {key: 'Jimmy'},
-      {key: 'Julie'}]
+      {key: 'Jackson'}]
     }
   }
   render() {
     return(
-    <View style={styles.container}>
+    <View style={styles.wrapper}>
+      <TextInput
+      style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+      onChangeText={(text) => this.setState({text})}
+      value={this.state.text}
+    />
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) => <Text style={{padding:20,borderWidth:1}}>{item.key}</Text>}
@@ -38,8 +38,8 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: 'yellow'
   }
 });
