@@ -62,12 +62,3 @@ const styles = StyleSheet.create({
     backgroundColor:'green'
   }
 });
-
-
-
-
-
-  /* <FlatList
-        data={this.state.dataSource}
-        renderItem={({item}) => <Text style={{padding:20,borderWidth:1}}>{item.key}</Text>}
-      /> */
